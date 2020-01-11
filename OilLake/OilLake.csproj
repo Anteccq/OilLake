@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Toolkit.Wpf.UI.Controls" Version="6.0.0" />
+    <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
+    <PackageReference Include="ReactiveProperty" Version="6.1.4" />
   </ItemGroup>
 
   <ItemGroup>
@@ -18,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Models\" />
-    <Folder Include="ViewModels\" />
   </ItemGroup>
   <PropertyGroup>
     <AssetTargetFallback>uap10.0.18362</AssetTargetFallback>

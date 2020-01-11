@@ -22,5 +22,12 @@ namespace OilLake.Views
         {
             InitializeComponent();
         }
+
+        private void WindowsXamlHostBase_OnChildChanged(object sender, EventArgs e)
+        {
+            var host = (WindowsXamlHost) sender;
+            var control = host.Child as OilLakeUI.UI.Markdown;
+            if (control != null) control.DataContext = DataContext;
+        }
     }
 }

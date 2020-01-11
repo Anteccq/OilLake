@@ -9,10 +9,27 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="OilTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <TextBox Text="# Nandeyanen"/>
-            <controls:MarkdownTextBlock Text="# Nandeyanen?"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="Code" Text="{Binding MarkdownText.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                 AcceptsReturn="True" BorderThickness="0" TextWrapping="Wrap"
+                 FontFamily="Source Han Code JP EL" FontSize="16"/>
+
+        <controls:GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                               Background="Silver" Width="5"/>
+
+        <controls:MarkdownTextBlock Grid.Column="2" x:Name="MarkdownText" Text="{Binding MarkdownText.Value, Mode=OneWay}"/>
     </Grid>
 </UserControl>
