@@ -124,6 +124,9 @@
     <Compile Include="UI\Markdown.xaml.cs">
       <DependentUpon>Markdown.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\TextTabView.xaml.cs">
+      <DependentUpon>TextTabView.xaml</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Properties\OilLakeUI.rd.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +143,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\OilTheme.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\TextTabView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

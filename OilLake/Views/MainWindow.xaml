@@ -6,12 +6,11 @@
         xmlns:local="clr-namespace:OilLake.Views"
         xmlns:xaml="clr-namespace:Microsoft.Toolkit.Wpf.UI.XamlHost;assembly=Microsoft.Toolkit.Wpf.UI.XamlHost"
         xmlns:viewModels="clr-namespace:OilLake.ViewModels"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Window.DataContext>
-        <viewModels:MainWindowViewModel/>
-    </Window.DataContext>
     <Grid>
-        <xaml:WindowsXamlHost InitialTypeName="OilLakeUI.UI.Markdown" ChildChanged="WindowsXamlHostBase_OnChildChanged"/>
+        <xaml:WindowsXamlHost InitialTypeName="OilLakeUI.UI.TextTabView" ChildChanged="OnContentChanged"/>
     </Grid>
 </Window>

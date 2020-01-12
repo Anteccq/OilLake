@@ -23,13 +23,13 @@
             <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
 
-        <TextBox x:Name="Code" Text="{Binding MarkdownText.Value, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+        <TextBox x:Name="Code" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                  AcceptsReturn="True" BorderThickness="0" TextWrapping="Wrap"
                  FontFamily="Source Han Code JP EL" FontSize="16"/>
 
         <controls:GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                Background="Silver" Width="5"/>
 
-        <controls:MarkdownTextBlock Grid.Column="2" x:Name="MarkdownText" Text="{Binding MarkdownText.Value, Mode=OneWay}"/>
+        <controls:MarkdownTextBlock Grid.Column="2" x:Name="MarkdownText" Text="{Binding Content, Mode=OneWay}"/>
     </Grid>
 </UserControl>

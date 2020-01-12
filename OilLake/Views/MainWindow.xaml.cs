@@ -1,14 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using Microsoft.Toolkit.Wpf.UI.XamlHost;
 
 namespace OilLake.Views
@@ -26,8 +17,7 @@ namespace OilLake.Views
         private void WindowsXamlHostBase_OnChildChanged(object sender, EventArgs e)
         {
             var host = (WindowsXamlHost) sender;
-            var control = host.Child as OilLakeUI.UI.Markdown;
-            if (control != null) control.DataContext = DataContext;
+            if (host.Child is OilLakeUI.UI.TextTabView control) control.DataContext = DataContext;
         }
     }
 }
