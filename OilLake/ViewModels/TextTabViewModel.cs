@@ -12,15 +12,15 @@ namespace OilLake.ViewModels
 {
     public class TextTabViewModel : BindableBase
     {
-        public ICollection<MarkdownViewModel> ItemCollection { get; }
+        public ObservableCollection<MarkdownViewModel> ItemCollection { get; set; }
 
         public ReactiveProperty<int> SelectIndex { get; } = new ReactiveProperty<int>();
 
         public TextTabViewModel(params FileData[] defaultDatas)
         {
             var dataArray = defaultDatas.Length != 0 ? defaultDatas : new[]{FileData.DefaultData};
+            MessageBox.Show(dataArray.Length.ToString());
             ItemCollection = new ObservableCollection<MarkdownViewModel>(dataArray.Select(data => new MarkdownViewModel(data)).ToArray());
-            MessageBox.Show(ItemCollection.Count.ToString());
         }
     }
 }

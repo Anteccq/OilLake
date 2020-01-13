@@ -124,6 +124,9 @@
     <Compile Include="UI\Markdown.xaml.cs">
       <DependentUpon>Markdown.xaml</DependentUpon>
     </Compile>
+    <Compile Include="UI\OilLakeMenubar.xaml.cs">
+      <DependentUpon>OilLakeMenubar.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\TextTabView.xaml.cs">
       <DependentUpon>TextTabView.xaml</DependentUpon>
     </Compile>
@@ -139,6 +142,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="UI\Markdown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UI\OilLakeMenubar.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

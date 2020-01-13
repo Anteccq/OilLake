@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using Microsoft.Toolkit.Wpf.UI.XamlHost;
+using OilLake.ViewModels;
 
 namespace OilLake.Views
 {
@@ -17,7 +18,8 @@ namespace OilLake.Views
         private void WindowsXamlHostBase_OnChildChanged(object sender, EventArgs e)
         {
             var host = (WindowsXamlHost) sender;
-            if (host.Child is OilLakeUI.UI.TextTabView control) control.DataContext = DataContext;
+            var control = host.Child as OilLakeUI.UI.TextTabView;
+            if (control != null) control.DataContext = ((MainWindowViewModel)DataContext).TabViewModel;
         }
     }
 }
