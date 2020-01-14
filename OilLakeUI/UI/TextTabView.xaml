@@ -10,18 +10,16 @@
     d:DesignHeight="300"
     d:DesignWidth="400">
 
-    <Grid>
-        <controls:TabView ItemsSource="{Binding ItemCollection}">
-            <controls:TabView.ItemHeaderTemplate>
-                <DataTemplate>
-                    <TextBlock Text="{Binding Title.Value}"/>
-                </DataTemplate>
-            </controls:TabView.ItemHeaderTemplate>
-            <controls:TabView.ItemTemplate>
-                <DataTemplate>
-                    <local:Markdown DataContext="{Binding FileData}"/>
-                </DataTemplate>
-            </controls:TabView.ItemTemplate>
+    <controls:TabView SelectedIndex="{Binding SelectIndex.Value, Mode=TwoWay}" ItemsSource="{Binding ItemCollection}">
+        <controls:TabView.ItemHeaderTemplate>
+            <DataTemplate>
+                <TextBlock Text="{Binding Title.Value}"/>
+            </DataTemplate>
+        </controls:TabView.ItemHeaderTemplate>
+        <controls:TabView.ItemTemplate>
+            <DataTemplate>
+                <local:Markdown DataContext="{Binding FileData}"/>
+            </DataTemplate>
+        </controls:TabView.ItemTemplate>
         </controls:TabView>
-    </Grid>
 </UserControl>

@@ -8,29 +8,34 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
-    <MenuBar>
-        <MenuBarItem Title="File">
-            <MenuFlyoutItem Text="New File">
-                <MenuFlyoutItem.KeyboardAccelerators>
-                    <KeyboardAccelerator Modifiers="Control" Key="N"/>
-                </MenuFlyoutItem.KeyboardAccelerators>
-            </MenuFlyoutItem>
-            <MenuFlyoutItem Text="New Window">
+    <Grid HorizontalAlignment="Left">
+        <MenuBar Margin="0,2,0,0" Height="25">
+            <MenuBarItem Title="File">
+                <MenuFlyoutItem Text="New File">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="N"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
+                <MenuFlyoutItem Text="New Window">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control,Shift" Key="N"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
 
-            </MenuFlyoutItem>
-            <MenuFlyoutItem Text="Open..."/>
-            <MenuFlyoutItem Text="Save"/>
-            <MenuFlyoutSubItem Text="Export...">
-                <MenuFlyoutItem Text="Presentation" />
-                <MenuFlyoutItem Text="HTML" />
-                <MenuFlyoutItem Text="Image" />
-            </MenuFlyoutSubItem>
-            <MenuFlyoutItem Text="Exit"/>
-        </MenuBarItem>
+                <MenuFlyoutItem Text="Open..."/>
+                <MenuFlyoutItem Text="Save"/>
+                <MenuFlyoutSubItem Text="Export...">
+                    <MenuFlyoutItem Text="Presentation" />
+                    <MenuFlyoutItem Text="HTML" />
+                    <MenuFlyoutItem Text="Image" />
+                </MenuFlyoutSubItem>
+                <MenuFlyoutItem Text="Exit"/>
+            </MenuBarItem>
 
-        <MenuBarItem Title="Help">
-            <MenuFlyoutItem Text="About"/>
-            <MenuFlyoutItem Text="Licenses"/>
-        </MenuBarItem>
-    </MenuBar>
+            <MenuBarItem Title="Help">
+                <MenuFlyoutItem Text="About"/>
+                <MenuFlyoutItem Text="Licenses"/>
+            </MenuBarItem>
+        </MenuBar>
+    </Grid>
 </UserControl>

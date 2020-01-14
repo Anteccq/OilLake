@@ -18,8 +18,7 @@ namespace OilLake.ViewModels
 
         public TextTabViewModel(params FileData[] defaultDatas)
         {
-            var dataArray = defaultDatas.Length != 0 ? defaultDatas : new[]{FileData.DefaultData};
-            MessageBox.Show(dataArray.Length.ToString());
+            var dataArray = defaultDatas.Length != 0 ? defaultDatas : new[]{FileData.DefaultData, FileData.DefaultData};
             ItemCollection = new ObservableCollection<MarkdownViewModel>(dataArray.Select(data => new MarkdownViewModel(data)).ToArray());
         }
     }

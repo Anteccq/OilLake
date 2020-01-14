@@ -25,11 +25,17 @@
 
         <TextBox x:Name="Code" Text="{Binding Content, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                  AcceptsReturn="True" BorderThickness="0" TextWrapping="Wrap"
-                 FontFamily="Source Han Code JP EL" FontSize="16"/>
+                 FontFamily="Source Han Code JP EL" FontSize="16">
+            <TextBox.Resources>
+                <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="Black" Opacity="0.2"/>
+                <SolidColorBrush x:Key="TextControlForegroundFocused" Color="White"/>
+                <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="White" Opacity="0.2"/>
+            </TextBox.Resources>
+        </TextBox>
 
         <controls:GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
                                Background="Silver" Width="5"/>
 
-        <controls:MarkdownTextBlock Grid.Column="2" x:Name="MarkdownText" Text="{Binding Content, Mode=OneWay}"/>
+        <controls:MarkdownTextBlock Grid.Column="2" x:Name="MarkdownText" TextWrapping="Wrap" Text="{Binding Content, Mode=OneWay}"/>
     </Grid>
 </UserControl>
