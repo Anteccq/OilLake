@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows;
+using Windows.Storage.Pickers;
 using Microsoft.Toolkit.Wpf.UI.XamlHost;
 using OilLake.ViewModels;
 using Windows.UI.Core;
@@ -21,12 +23,19 @@ namespace OilLake.Views
         private void WindowsXamlHostBase_OnChildChanged(object sender, EventArgs e)
         {
             var host = (WindowsXamlHost) sender;
-            if (host.Child is OilLakeUI.UI.TextTabView control) control.DataContext = ((MainWindowViewModel)DataContext).TabViewModel;
+            if (host.Child is OilLakeUI.UI.TextTabView control)
+            {
+                control.DataContext = ((MainWindowViewModel)DataContext).TabViewModel;
+                control.AllowFocusOnInteraction = true;
+                ((MainWindowViewModel) DataContext).XamlRoot = host.Child.XamlRoot;
+            }
         }
 
 
         private void Menubar_ChildChanged(object sender, EventArgs e)
         {
+            var host = (WindowsXamlHost)sender;
+            if (host.Child is OilLakeUI.UI.OilLakeMenubar control) control.DataContext = ((MainWindowViewModel)DataContext).OilLakeMenubarViewModel;
         }
 
         private void MinimizeButton_ChildChanged(object sender, EventArgs e)
@@ -57,13 +66,11 @@ namespace OilLake.Views
             if (child == null) return;
             child.FontFamily = segoeFont ??= new Windows.UI.Xaml.Media.FontFamily("Segoe MDL2 Assets");
             child.Content = Char.ConvertFromUtf32(0xE8BB);
-            child.Click += (a,e) => this.Close();
+            child.Click += (a,e) => Application.Current.Shutdown();
             child.Background = backgroundBrush ??= new Windows.UI.Xaml.Media.SolidColorBrush(Windows.UI.Colors.Black);
         }
 
         private T SenderControl<T>(object sender)
             where T : Windows.UI.Xaml.UIElement => ((WindowsXamlHost)sender).Child as T;
-
-
     }
 }

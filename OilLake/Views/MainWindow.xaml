@@ -31,7 +31,7 @@
             <RowDefinition Height="27"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <Grid Background="Black">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
@@ -40,12 +40,11 @@
             </Grid.ColumnDefinitions>
             <xaml:WindowsXamlHost HorizontalAlignment="Left" Grid.Column="0" Grid.Row="0" InitialTypeName="OilLakeUI.UI.OilLakeMenubar" ChildChanged="Menubar_ChildChanged"/>
             <StackPanel Grid.Column="2" Orientation="Horizontal" HorizontalAlignment="Right">
-                <xaml:WindowsXamlHost Grid.Row="1" InitialTypeName="Windows.UI.Xaml.Controls.Button" ChildChanged="MinimizeButton_ChildChanged"/>
-                <xaml:WindowsXamlHost Grid.Row="1" InitialTypeName="Windows.UI.Xaml.Controls.Button" ChildChanged="MaxmizeButton_ChildChanged"/>
-                <xaml:WindowsXamlHost Grid.Row="1" InitialTypeName="Windows.UI.Xaml.Controls.Button" ChildChanged="CloseButton_ChildChanged"/>
+                <xaml:WindowsXamlHost InitialTypeName="Windows.UI.Xaml.Controls.Button" ChildChanged="MinimizeButton_ChildChanged"/>
+                <xaml:WindowsXamlHost InitialTypeName="Windows.UI.Xaml.Controls.Button" ChildChanged="MaxmizeButton_ChildChanged"/>
+                <xaml:WindowsXamlHost InitialTypeName="Windows.UI.Xaml.Controls.Button" ChildChanged="CloseButton_ChildChanged"/>
             </StackPanel>
         </Grid>
-        
         <xaml:WindowsXamlHost Grid.Row="1" InitialTypeName="OilLakeUI.UI.TextTabView" ChildChanged="WindowsXamlHostBase_OnChildChanged"/>
     </Grid>
 </Window>

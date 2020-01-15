@@ -16,6 +16,8 @@ namespace OilLake.ViewModels
 
         public ReactiveProperty<int> SelectIndex { get; } = new ReactiveProperty<int>();
 
+        public FileData SelectFileData => ItemCollection[SelectIndex.Value].FileData;
+
         public TextTabViewModel(params FileData[] defaultDatas)
         {
             var dataArray = defaultDatas.Length != 0 ? defaultDatas : new[]{FileData.DefaultData, FileData.DefaultData};

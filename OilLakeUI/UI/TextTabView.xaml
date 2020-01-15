@@ -18,7 +18,7 @@
         </controls:TabView.ItemHeaderTemplate>
         <controls:TabView.ItemTemplate>
             <DataTemplate>
-                <local:Markdown DataContext="{Binding FileData}"/>
+                <local:Markdown DataContext="{Binding}"/>
             </DataTemplate>
         </controls:TabView.ItemTemplate>
         </controls:TabView>

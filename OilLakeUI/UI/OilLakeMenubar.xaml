@@ -11,7 +11,7 @@
     <Grid HorizontalAlignment="Left">
         <MenuBar Margin="0,2,0,0" Height="25">
             <MenuBarItem Title="File">
-                <MenuFlyoutItem Text="New File">
+                <MenuFlyoutItem Text="New File" Command="{Binding OpenNewFile}">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="N"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
@@ -23,11 +23,16 @@
                 </MenuFlyoutItem>
 
                 <MenuFlyoutItem Text="Open..."/>
-                <MenuFlyoutItem Text="Save"/>
+                <MenuFlyoutItem Text="Save" Command="{Binding SaveFile}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control" Key="S"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
                 <MenuFlyoutSubItem Text="Export...">
-                    <MenuFlyoutItem Text="Presentation" />
-                    <MenuFlyoutItem Text="HTML" />
-                    <MenuFlyoutItem Text="Image" />
+                    <MenuFlyoutItem Text="Presentation" Command="{Binding Export}" CommandParameter="PowerPoint"/>
+                    <MenuFlyoutItem Text="HTML" Command="{Binding Export}" CommandParameter="Html"/>
+                    <MenuFlyoutItem Text="Image" Command="{Binding Export}" CommandParameter="Image"/>
+                    <MenuFlyoutItem Text="PDF" Command="{Binding Export}" CommandParameter="Pdf"/>
                 </MenuFlyoutSubItem>
                 <MenuFlyoutItem Text="Exit"/>
             </MenuBarItem>

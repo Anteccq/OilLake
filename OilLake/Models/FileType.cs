@@ -8,6 +8,7 @@ namespace OilLake.Models
     {
         Image,
         PowerPoint,
-        PDF
+        Html,
+        Pdf
     }
 }
