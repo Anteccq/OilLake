@@ -25,8 +25,7 @@
 
         <TextBox x:Name="Code" Text="{Binding FileData.Content, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
                  AcceptsReturn="True" BorderThickness="0" TextWrapping="Wrap"
-                 FontFamily="Source Han Code JP EL" FontSize="16"
-                 >
+                 FontFamily="Source Han Code JP EL" FontSize="16" Margin="8">
             <TextBox.Resources>
                 <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="Black" Opacity="0.2"/>
                 <SolidColorBrush x:Key="TextControlForegroundFocused" Color="White"/>
@@ -38,8 +37,11 @@
                                Background="Silver" Width="5"/>
         <ScrollViewer Grid.Column="2" HorizontalScrollBarVisibility="Disabled"
                       VerticalScrollBarVisibility="Visible"
-                      BorderThickness="0">
-            <controls:MarkdownTextBlock TextWrapping="Wrap" Text="{Binding Content.Value, Mode=OneWay}"/>
+                      BorderThickness="0"
+                      Margin="8">
+            <controls:MarkdownTextBlock TextWrapping="Wrap"
+                                        Text="{Binding Content.Value, Mode=OneWay}"
+                                        LinkForeground="DarkGoldenrod"/>
         </ScrollViewer>
     </Grid>
 </UserControl>

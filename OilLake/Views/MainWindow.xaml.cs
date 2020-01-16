@@ -27,7 +27,6 @@ namespace OilLake.Views
             {
                 control.DataContext = ((MainWindowViewModel)DataContext).TabViewModel;
                 control.AllowFocusOnInteraction = true;
-                ((MainWindowViewModel) DataContext).XamlRoot = host.Child.XamlRoot;
             }
         }
 

@@ -127,9 +127,6 @@
     <Compile Include="UI\OilLakeMenubar.xaml.cs">
       <DependentUpon>OilLakeMenubar.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UI\PresentationDialog.xaml.cs">
-      <DependentUpon>PresentationDialog.xaml</DependentUpon>
-    </Compile>
     <Compile Include="UI\TextTabView.xaml.cs">
       <DependentUpon>TextTabView.xaml</DependentUpon>
     </Compile>
@@ -156,10 +153,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UI\OilTheme.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UI\PresentationDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -1,10 +1,15 @@
 ﻿using OilLake.Models.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
+using Windows.Storage;
+using Windows.UI.Xaml.Media.Imaging;
 using MDToPPTX;
 using MDToPPTX.PPTX;
+using Markdig;
 
 namespace OilLake.Models
 {
@@ -15,11 +20,14 @@ namespace OilLake.Models
         {
             switch (fileType)
             {
-                case FileType.Image:
-                    break;
                 case FileType.Pdf:
                     break;
                 case FileType.Html:
+                    var htmlData = (string) fileData;
+                    await using (var stream = new StreamWriter(path, false, Encoding.UTF8))
+                    {
+                        await stream.WriteAsync(htmlData);
+                    }
                     break;
                 case FileType.PowerPoint:
                     var file = (PptxFileData) fileData;

@@ -13,13 +13,14 @@ using Windows.Storage.Provider;
 using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Media.Imaging;
 using Microsoft.Win32;
 using OilLake.Models;
 using OilLake.Models.Interfaces;
 using Prism.Commands;
 using Prism.Mvvm;
-using Reactive.Bindings;
-using Unity;
+using Markdig;
+using System.Windows.Media;
 
 namespace OilLake.ViewModels
 {
@@ -29,7 +30,7 @@ namespace OilLake.ViewModels
 
         public OilLakeMenubarViewModel OilLakeMenubarViewModel { get; }
 
-        public XamlRoot XamlRoot { get; set; }
+        public Control Control { get; set; }
 
         private IFileService _fileService;
         private IFileExportService _fileExportService;
@@ -71,17 +72,14 @@ namespace OilLake.ViewModels
         private async Task ExportAsync(FileData fileData, FileType fileType)
         {
             object exportData;
+            exportData = fileType switch
+            {
+                FileType.PowerPoint => new PptxFileData(fileData, "Presentation Title", "Made by OilLake"),
+                FileType.Html => Markdown.ToHtml(fileData.Content),
+                _ => new object()
+                //FileType.Pdf => 
+            };
             var saveFileDialog = new SaveFileDialog { Filter = FilterString(fileType) };
-            if (fileType == FileType.PowerPoint)
-            {
-                var data = await DisplayDialog();
-                if(data.title == "" && data.subtitle == "") return;
-                exportData = new PptxFileData(fileData, data.title, data.subtitle);
-            }
-            else
-            {
-                exportData = new object();
-            }
             var result = saveFileDialog.ShowDialog();
             if (result == true)
             {
@@ -95,22 +93,10 @@ namespace OilLake.ViewModels
             return fileType switch
             {
                 FileType.Html => "HTML File(.html)|*.html",
-                FileType.Image => "HTML File(.html)|*.html",
                 FileType.PowerPoint => "PowerPoint File(.pptx)|*.pptx",
                 FileType.Pdf => "PDF File(.pdf)|*.pdf",
                 _ => "Markdown(.md)|*.md"
             };
-        }
-
-        private async Task<(string title, string subtitle)> DisplayDialog()
-        {
-            OilLakeUI.UI.PresentationDialog dialog = new OilLakeUI.UI.PresentationDialog();
-
-            dialog.XamlRoot = XamlRoot;
-            await dialog.ShowAsync();
-            var title = dialog.TitleText ?? "";
-            var subTitle = dialog.SubTitleText ?? "";
-            return (title, subTitle);
         }
     }
 }
