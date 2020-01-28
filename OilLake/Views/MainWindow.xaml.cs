@@ -5,6 +5,9 @@ using Windows.Storage.Pickers;
 using Microsoft.Toolkit.Wpf.UI.XamlHost;
 using OilLake.ViewModels;
 using Windows.UI.Core;
+using Windows.UI.Xaml;
+using Application = System.Windows.Application;
+using Window = System.Windows.Window;
 
 namespace OilLake.Views
 {
@@ -14,6 +17,8 @@ namespace OilLake.Views
     public partial class MainWindow : Window
     {
         private static Windows.UI.Xaml.Media.FontFamily segoeFont;
+
+        internal static XamlRoot Root;
 
         public MainWindow()
         {
@@ -25,6 +30,7 @@ namespace OilLake.Views
             var host = (WindowsXamlHost) sender;
             if (host.Child is OilLakeUI.UI.TextTabView control)
             {
+                Root = host.Child.XamlRoot;
                 control.DataContext = ((MainWindowViewModel)DataContext).TabViewModel;
                 control.AllowFocusOnInteraction = true;
             }

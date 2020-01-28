@@ -35,8 +35,8 @@
             </MenuBarItem>
 
             <MenuBarItem Title="Help">
-                <MenuFlyoutItem Text="About"/>
-                <MenuFlyoutItem Text="Licenses"/>
+                <MenuFlyoutItem Text="About" Command="{Binding DisplayAbout}"/>
+                <MenuFlyoutItem Text="Licenses" Command="{Binding DisplayLicenses}"/>
             </MenuBarItem>
         </MenuBar>
     </Grid>

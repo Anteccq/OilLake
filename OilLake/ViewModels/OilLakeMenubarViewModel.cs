@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using Microsoft.Win32;
 using OilLake.Models;
+using OilLake.Views;
 using Reactive.Bindings;
 
 namespace OilLake.ViewModels
@@ -31,6 +32,18 @@ namespace OilLake.ViewModels
         {
             _fileService = fileService;
             _fileExportService = fileExportService;
+            DisplayLicenses = new DelegateCommand(async () =>
+            {
+                var dialog = new OilLakeUI.UI.LicenseDialog();
+                dialog.XamlRoot = MainWindow.Root;
+                var result = await dialog.ShowAsync();
+            });
+            DisplayAbout = new DelegateCommand(async () =>
+            {
+                var dialog = new OilLakeUI.UI.AboutDialog();
+                dialog.XamlRoot = MainWindow.Root;
+                var result = await dialog.ShowAsync();
+            });
         }
     }
 }
