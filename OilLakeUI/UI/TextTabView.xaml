@@ -13,7 +13,14 @@
     <controls:TabView SelectedIndex="{Binding SelectIndex.Value, Mode=TwoWay}" ItemsSource="{Binding ItemCollection}">
         <controls:TabView.ItemHeaderTemplate>
             <DataTemplate>
-                <TextBlock Text="{Binding Title.Value}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="20"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Title.Value}"/>
+                    <Button Grid.Column="1" FontSize="10" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Command="{Binding DropFile}" Height="20" Width="20"/>
+                </Grid>
             </DataTemplate>
         </controls:TabView.ItemHeaderTemplate>
         <controls:TabView.ItemTemplate>

@@ -125,6 +125,11 @@
     <Content Include="Images\SplashScreen.scale-125.png" />
     <Content Include="Images\SplashScreen.scale-150.png" />
     <Content Include="Images\SplashScreen.scale-200.png" />
+    <Content Include="Images\SplashScreen.scale-200.scale-100.png" />
+    <Content Include="Images\SplashScreen.scale-200.scale-125.png" />
+    <Content Include="Images\SplashScreen.scale-200.scale-150.png" />
+    <Content Include="Images\SplashScreen.scale-200.scale-200.png" />
+    <Content Include="Images\SplashScreen.scale-200.scale-400.png" />
     <Content Include="Images\SplashScreen.scale-400.png" />
     <Content Include="Images\Square150x150Logo.scale-100.png" />
     <Content Include="Images\Square150x150Logo.scale-125.png" />
@@ -177,7 +182,8 @@
       <_TemporaryFilteredWapProjOutput Include="@(_FilteredNonWapProjProjectOutput)" />
       <_FilteredNonWapProjProjectOutput Remove="@(_TemporaryFilteredWapProjOutput)" />
       <_FilteredNonWapProjProjectOutput Include="@(_TemporaryFilteredWapProjOutput)">
-        <SourceProject></SourceProject>
+        <SourceProject>
+        </SourceProject>
         <TargetPath Condition="'%(FileName)%(Extension)'=='resources.pri'">app_resources.pri</TargetPath>
       </_FilteredNonWapProjProjectOutput>
     </ItemGroup>

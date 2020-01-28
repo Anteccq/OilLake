@@ -42,26 +42,23 @@ namespace OilLake.ViewModels
             OilLakeMenubarViewModel = new OilLakeMenubarViewModel(fileService, fileExportService)
             {
                 SaveFile = new DelegateCommand(async () => await SaveAsync(TabViewModel.SelectFileData)),
+                SaveNewFile = new DelegateCommand(async () => await SaveNewAsync(TabViewModel.SelectFileData)),
                 OpenNewFile = new DelegateCommand(() => TabViewModel.ItemCollection.Add(new MarkdownViewModel(FileData.DefaultData))),
                 Export = new DelegateCommand<string>(async (str) =>
                 {
                     if (Enum.TryParse(str, out FileType fileType) && Enum.IsDefined(typeof(FileType), fileType))
                         await ExportAsync(TabViewModel.SelectFileData, fileType);
-                })
+                }),
+                CloseWindow = new DelegateCommand(() => App.Current.Shutdown())
             };
         }
 
         private async Task SaveAsync(FileData fileData)
         {
+            if(fileData == null) return;
             if (fileData.Path == null)
             {
-                var saveFileDialog = new SaveFileDialog {Filter = "Markdown(.md)|*.md"};
-                var result = saveFileDialog.ShowDialog();
-                if (result == true)
-                {
-                    fileData.Path = saveFileDialog.FileName;
-                    await _fileService.SaveDataAsync(fileData);
-                }
+                await SaveNewAsync(fileData);
             }
             else
             {
@@ -69,8 +66,21 @@ namespace OilLake.ViewModels
             }
         }
 
+        private async Task SaveNewAsync(FileData fileData)
+        {
+            if (fileData == null) return;
+            var saveFileDialog = new SaveFileDialog { Filter = "Markdown(.md)|*.md" };
+            var result = saveFileDialog.ShowDialog();
+            if (result == true)
+            {
+                fileData.Path = saveFileDialog.FileName;
+                await _fileService.SaveDataAsync(fileData);
+            }
+        }
+
         private async Task ExportAsync(FileData fileData, FileType fileType)
         {
+            if(fileData == null) return;
             object exportData;
             exportData = fileType switch
             {

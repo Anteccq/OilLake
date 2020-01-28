@@ -17,6 +17,7 @@ namespace OilLake.ViewModels
         public DelegateCommand OpenNewFile { get; set; }
         public DelegateCommand OpenNewWindow { get; set; }
         public DelegateCommand SaveFile { get; set; }
+        public DelegateCommand SaveNewFile { get; set; }
         public DelegateCommand CloseWindow { get; set; }
         public DelegateCommand<string> Export { get; set; }
 
