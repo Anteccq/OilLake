@@ -13,12 +13,19 @@
     <controls:TabView SelectedIndex="{Binding SelectIndex.Value, Mode=TwoWay}" ItemsSource="{Binding ItemCollection}">
         <controls:TabView.ItemHeaderTemplate>
             <DataTemplate>
-                <TextBlock Text="{Binding Title.Value}"/>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="40"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Text="{Binding Title.Value}" VerticalAlignment="Center"/>
+                    <Button Grid.Column="1" BorderThickness="0" HorizontalAlignment="Right" FontSize="10" Content="-" Foreground="WhiteSmoke" Background="#01151515" Command="{Binding DropFile}"/>
+                </Grid>
             </DataTemplate>
         </controls:TabView.ItemHeaderTemplate>
         <controls:TabView.ItemTemplate>
             <DataTemplate>
-                <local:Markdown DataContext="{Binding FileData}"/>
+                <local:Markdown DataContext="{Binding}"/>
             </DataTemplate>
         </controls:TabView.ItemTemplate>
         </controls:TabView>

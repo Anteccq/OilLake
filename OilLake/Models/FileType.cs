@@ -6,8 +6,8 @@ namespace OilLake.Models
 {
     public enum FileType
     {
-        Image,
         PowerPoint,
-        PDF
+        Html,
+        Pdf
     }
 }

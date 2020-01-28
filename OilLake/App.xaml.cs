@@ -23,6 +23,7 @@ namespace OilLake
         {
             ViewModelLocationProvider.SetDefaultViewModelFactory(x => this.Container.Resolve(x));
             this.Container.RegisterType<IFileService, FileManager>();
+            this.Container.RegisterType<IFileExportService, FileExportManager>();
             this.Container.Resolve<MainWindow>().Show();
         }
     }

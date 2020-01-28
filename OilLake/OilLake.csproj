@@ -8,6 +8,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Contents\License.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Contents\License.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MDToPPTX" Version="1.0.0" />
     <PackageReference Include="Microsoft.Toolkit.Wpf.UI.Controls" Version="6.0.0" />
     <PackageReference Include="Microsoft.Xaml.Behaviors.Wpf" Version="1.1.3" />
     <PackageReference Include="Prism.Core" Version="7.2.0.1422" />
@@ -21,5 +32,6 @@
   </ItemGroup>
   <PropertyGroup>
     <AssetTargetFallback>uap10.0.18362</AssetTargetFallback>
+    <ApplicationIcon>Icon.ico</ApplicationIcon>
   </PropertyGroup>
 </Project>

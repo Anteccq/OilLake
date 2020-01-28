@@ -11,30 +11,32 @@
     <Grid HorizontalAlignment="Left">
         <MenuBar Margin="0,2,0,0" Height="25">
             <MenuBarItem Title="File">
-                <MenuFlyoutItem Text="New File">
+                <MenuFlyoutItem Text="New File" Command="{Binding OpenNewFile}">
                     <MenuFlyoutItem.KeyboardAccelerators>
                         <KeyboardAccelerator Modifiers="Control" Key="N"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-                <MenuFlyoutItem Text="New Window">
+                <MenuFlyoutItem Text="Open..."/>
+                <MenuFlyoutItem Text="Save" Command="{Binding SaveFile}">
                     <MenuFlyoutItem.KeyboardAccelerators>
-                        <KeyboardAccelerator Modifiers="Control,Shift" Key="N"/>
+                        <KeyboardAccelerator Modifiers="Control" Key="S"/>
                     </MenuFlyoutItem.KeyboardAccelerators>
                 </MenuFlyoutItem>
-
-                <MenuFlyoutItem Text="Open..."/>
-                <MenuFlyoutItem Text="Save"/>
+                <MenuFlyoutItem Text="Save as..." Command="{Binding SaveNewFile}">
+                    <MenuFlyoutItem.KeyboardAccelerators>
+                        <KeyboardAccelerator Modifiers="Control,Shift" Key="S"/>
+                    </MenuFlyoutItem.KeyboardAccelerators>
+                </MenuFlyoutItem>
                 <MenuFlyoutSubItem Text="Export...">
-                    <MenuFlyoutItem Text="Presentation" />
-                    <MenuFlyoutItem Text="HTML" />
-                    <MenuFlyoutItem Text="Image" />
+                    <MenuFlyoutItem Text="Presentation" Command="{Binding Export}" CommandParameter="PowerPoint"/>
+                    <MenuFlyoutItem Text="HTML" Command="{Binding Export}" CommandParameter="Html"/>
                 </MenuFlyoutSubItem>
-                <MenuFlyoutItem Text="Exit"/>
+                <MenuFlyoutItem Text="Exit" Command="{Binding CloseWindow}"/>
             </MenuBarItem>
 
             <MenuBarItem Title="Help">
-                <MenuFlyoutItem Text="About"/>
-                <MenuFlyoutItem Text="Licenses"/>
+                <MenuFlyoutItem Text="About" Command="{Binding DisplayAbout}"/>
+                <MenuFlyoutItem Text="Licenses" Command="{Binding DisplayLicenses}"/>
             </MenuBarItem>
         </MenuBar>
     </Grid>
