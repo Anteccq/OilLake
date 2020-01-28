@@ -121,6 +121,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="UI\AboutDialog.xaml.cs">
+      <DependentUpon>AboutDialog.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UI\LicenseDialog.xaml.cs">
       <DependentUpon>LicenseDialog.xaml</DependentUpon>
     </Compile>
@@ -147,6 +150,10 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
+    <Page Include="UI\AboutDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UI\LicenseDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -170,6 +177,11 @@
   </ItemGroup>
   <ItemGroup>
     <PRIResource Include="Properties\Resources.resw" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="UI\Icon.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

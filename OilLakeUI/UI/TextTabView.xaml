@@ -16,10 +16,10 @@
                 <Grid>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
-                        <ColumnDefinition Width="20"/>
+                        <ColumnDefinition Width="40"/>
                     </Grid.ColumnDefinitions>
-                    <TextBlock Text="{Binding Title.Value}"/>
-                    <Button Grid.Column="1" FontSize="10" FontFamily="Segoe MDL2 Assets" Content="&#xE711;" Command="{Binding DropFile}" Height="20" Width="20"/>
+                    <TextBlock Text="{Binding Title.Value}" VerticalAlignment="Center"/>
+                    <Button Grid.Column="1" BorderThickness="0" HorizontalAlignment="Right" FontSize="10" Content="-" Foreground="WhiteSmoke" Background="#01151515" Command="{Binding DropFile}"/>
                 </Grid>
             </DataTemplate>
         </controls:TabView.ItemHeaderTemplate>
