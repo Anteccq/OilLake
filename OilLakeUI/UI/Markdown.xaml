@@ -9,10 +9,39 @@
     mc:Ignorable="d"
     d:DesignHeight="300"
     d:DesignWidth="400">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="OilTheme.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
     <Grid>
-        <StackPanel Orientation="Horizontal">
-            <TextBox Text="# Nandeyanen"/>
-            <controls:MarkdownTextBlock Text="# Nandeyanen?"/>
-        </StackPanel>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="10"/>
+            <ColumnDefinition Width="0.5*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBox x:Name="Code" Text="{Binding FileData.Content, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}"
+                 AcceptsReturn="True" BorderThickness="0" TextWrapping="Wrap"
+                 FontFamily="Source Han Code JP EL" FontSize="16" Margin="8">
+            <TextBox.Resources>
+                <SolidColorBrush x:Key="TextControlBackgroundFocused" Color="Black" Opacity="0.2"/>
+                <SolidColorBrush x:Key="TextControlForegroundFocused" Color="White"/>
+                <SolidColorBrush x:Key="TextControlBorderBrushFocused" Color="White" Opacity="0.2"/>
+            </TextBox.Resources>
+        </TextBox>
+
+        <controls:GridSplitter Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"
+                               Background="Silver" Width="5"/>
+        <ScrollViewer Grid.Column="2" HorizontalScrollBarVisibility="Disabled"
+                      VerticalScrollBarVisibility="Visible"
+                      BorderThickness="0"
+                      Margin="8">
+            <controls:MarkdownTextBlock TextWrapping="Wrap"
+                                        Text="{Binding Content.Value, Mode=OneWay}"
+                                        LinkForeground="DarkGoldenrod"/>
+        </ScrollViewer>
     </Grid>
 </UserControl>
