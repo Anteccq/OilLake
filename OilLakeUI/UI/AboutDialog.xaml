@@ -16,13 +16,15 @@
             <RowDefinition/>
             <RowDefinition/>
             <RowDefinition/>
+            <RowDefinition/>
         </Grid.RowDefinitions>
         <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,8,0,0">
             <Image Height="50" Width="50" Source="/UI/Icon.png"/>
             <TextBlock Text="OilLake" FontSize="40" VerticalAlignment="Center" FontFamily="Yu Gothic UI Semibold" FontWeight="Bold"/>
         </StackPanel>
-        <TextBlock Grid.Row="1" Text="AntiqueR" FontSize="24" HorizontalAlignment="Center" Margin="4" FontFamily="Yu Gothic UI"/>
-        <TextBlock Grid.Row="2" Text="@AntiquePendant" FontSize="18" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Light"/>
-        <TextBlock Grid.Row="3" Text="https://github.com/AntiquePendulum/OilLake" FontSize="12" Margin="4" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Light"/>
+        <TextBlock Grid.Row="1" Text="A Simple Markdown Editor for your OIL" FontSize="12" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Light"/>
+        <TextBlock Grid.Row="2" Text="AntiqueR" FontSize="24" HorizontalAlignment="Center" Margin="4" FontFamily="Yu Gothic UI"/>
+        <TextBlock Grid.Row="3" Text="@AntiquePendant" FontSize="18" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Light"/>
+        <TextBlock Grid.Row="4" Text="https://github.com/AntiquePendulum/OilLake" FontSize="12" Margin="4" HorizontalAlignment="Center" FontFamily="Yu Gothic UI Light"/>
     </Grid>
 </ContentDialog>
